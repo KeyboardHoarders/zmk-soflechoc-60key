@@ -1,4 +1,11 @@
 /*
+ * Profile: macos
+ * Description: macOS-optimized with CAGS home row mods, Hyper key, Cmd+Z/X/C/V shortcuts
+ * Created: 2026-02-08
+ * Based on: default
+ */
+
+/*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
