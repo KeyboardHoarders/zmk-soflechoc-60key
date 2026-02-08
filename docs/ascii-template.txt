@@ -1,0 +1,32 @@
+# Sofle Choc 60-Key ASCII Layout Template
+#
+# This template is the canonical rendering format for all layer previews.
+# Each {NN} placeholder maps to a key position (00-59) and accepts a 4-char label.
+# Never construct ASCII layouts from scratch — always fill this template.
+#
+# Usage:
+#   1. Read this file
+#   2. Replace each {NN} with a 4-char abbreviated label (see docs/ascii-abbreviations.md)
+#   3. Pad shorter labels with spaces to fill 4 chars (right-pad or center as appropriate)
+#   4. Add an "Encoders:" footer line showing rotation bindings
+#
+# Position reference:
+#   Row 0 (Number):  00-05 (left), 06-11 (right)  = 12 keys
+#   Row 1 (Upper):   12-17 (left), 18-23 (right)  = 12 keys
+#   Row 2 (Home):    24-29 (left), 30-35 (right)  = 12 keys
+#   Row 3 (Lower):   36-42 (left), 43-49 (right)  = 14 keys (includes encoder keys 42, 43)
+#   Row 4 (Thumb):   50-54 (left), 55-59 (right)  = 10 keys
+#   Total: 60 keys
+
+,------+------+------+------+------+------.                 ,------+------+------+------+------+------.
+| {00} | {01} | {02} | {03} | {04} | {05} |                 | {06} | {07} | {08} | {09} | {10} | {11} |
+|------+------+------+------+------+------|                 |------+------+------+------+------+------|
+| {12} | {13} | {14} | {15} | {16} | {17} |                 | {18} | {19} | {20} | {21} | {22} | {23} |
+|------+------+------+------+------+------|                 |------+------+------+------+------+------|
+| {24} | {25} | {26} | {27} | {28} | {29} |                 | {30} | {31} | {32} | {33} | {34} | {35} |
+|------+------+------+------+------+------+------.   ,------+------+------+------+------+------+------|
+| {36} | {37} | {38} | {39} | {40} | {41} | {42} |   | {43} | {44} | {45} | {46} | {47} | {48} | {49} |
+`------+------+------+------+------+------+------'   `------+------+------+------+------+------+------'
+              | {50} | {51} | {52} | {53} | {54} |   | {55} | {56} | {57} | {58} | {59} |
+              `------+------+------+------+------'   `------+------+------+------+------'
+Encoders: L={ENC_L}  R={ENC_R}

@@ -403,6 +403,21 @@ The rest of the file is a complete, valid `sofle.keymap`.
 
 ---
 
+## ASCII Layout Rendering
+
+When rendering layer previews, **always** use the canonical template at `docs/ascii-template.txt`. Never construct ASCII layouts from scratch.
+
+**Workflow:**
+1. Read `docs/ascii-template.txt`
+2. For each key position, convert the ZMK binding to a 4-char label using `docs/ascii-abbreviations.md`
+3. Replace each `{NN}` placeholder with the corresponding label
+4. Replace `{ENC_L}` and `{ENC_R}` with encoder rotation descriptions
+5. Output the filled template as a code block, prefixed with `Layer: display-name (INDEX)`
+
+This ensures consistent alignment across all renders — especially the encoder keys (positions 42/43) in row 3 and the thumb cluster indentation.
+
+---
+
 ## Natural Language Translation Rules
 
 When the user describes key changes in plain English, follow these rules:

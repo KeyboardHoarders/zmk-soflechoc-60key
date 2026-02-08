@@ -33,32 +33,13 @@ Use AskUserQuestion to present the menu choices.
 ## Option [1]: View Layout
 
 1. Read `config/sofle.keymap`
-2. Parse each layer's bindings
-3. For each layer, render an ASCII grid showing the key labels:
+2. Read `docs/ascii-template.txt` to get the canonical layout template
+3. Parse each layer's bindings
+4. For each layer, fill the template by replacing `{NN}` placeholders with 4-char abbreviated labels
+5. Use `docs/ascii-abbreviations.md` for the abbreviation rules
+6. Show all layers, each labeled with `Layer: display-name (INDEX)`
 
-```
-Layer: default (BASE)
-,-------------------------------------------.     ,-------------------------------------------.
-|  `~ |  1  |  2  |  3  |  4  |  5  |           |  6  |  7  |  8  |  9  |  0  |  -  |
-|-----+-----+-----+-----+-----+-----|           |-----+-----+-----+-----+-----+-----|
-| TAB |  Q  |  W  |  E  |  R  |  T  |           |  Y  |  U  |  I  |  O  |  P  | BSP |
-|-----+-----+-----+-----+-----+-----|           |-----+-----+-----+-----+-----+-----|
-| SFT |  A  |  S  |  D  |  F  |  G  |           |  H  |  J  |  K  |  L  |  ;  |  '  |
-|-----+-----+-----+-----+-----+-----+-----.     ,-----+-----+-----+-----+-----+-----+-----|
-| CTL |  Z  |  X  |  C  |  V  |  B  |  [  |     |  ]  |  N  |  M  |  ,  |  .  |  /  | SFT |
-`-----+-----+-----+-----+-----+-----+-----'     `-----+-----+-----+-----+-----+-----+-----'
-            | GUI | ALT | CTL | LWR | SPC |     | ENT | RSE | CTL | ALT | GUI |
-            `-----------------------------------' `-----------------------------------'
-Encoders: L=Vol Up/Dn  R=PgUp/PgDn
-```
-
-Rendering rules:
-- Abbreviate bindings to fit 3-4 chars: `&kp A` -> `A`, `&kp LSHFT` -> `SFT`, `&mo LOWER` -> `LWR`, `&trans` -> `___`, `&none` -> `XXX`, `&mt LSHFT A` -> `s/A`, `&lt 1 SPC` -> `1/S`
-- Show `&trans` as `___` (transparent/passthrough)
-- Show `&none` as `XXX` (blocked)
-- Show `&mt MOD KEY` as lowercase-mod-initial/KEY (e.g., `s/A` for shift/A)
-- Show `&lt LAYER KEY` as layer-number/key-initial (e.g., `1/S` for layer-1/space)
-- Show all layers, labeled with their display-name and index
+**CRITICAL: Always use the template from `docs/ascii-template.txt`. Never construct ASCII layouts from scratch.** This prevents alignment errors with encoder keys and thumb cluster indentation.
 
 After showing the layout, offer to return to the main menu.
 
@@ -69,7 +50,7 @@ After showing the layout, offer to return to the main menu.
 This is the core feature. Flow:
 
 ### Step 1: Show current layer
-Display the current BASE layer as ASCII art (same format as View Layout).
+Display the current BASE layer using the template from `docs/ascii-template.txt` (same process as View Layout).
 
 ### Step 2: Ask what the user wants
 Ask: "Describe what you want to change in plain English. You can reference keys by name (Q, Tab, left shift) or position number (0-59). Specify the layer if not BASE."
